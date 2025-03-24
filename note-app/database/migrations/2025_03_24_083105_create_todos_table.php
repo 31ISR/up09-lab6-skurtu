@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('notes', function (Blueprint $table) {
+    Schema::create('todos', function (Blueprint $table) {
         $table->id();
-        $table->longText('note');
-
-        $table->foreignId('user_id')->constrained('users');
+        $table->string('name', 75);
+        $table->boolean('done');
+        $table->boolean('urgent');
+        $table->dateTime('dateCompleted')->nullable();
         $table->timestamps();
     });
 }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('todos');
     }
 };
