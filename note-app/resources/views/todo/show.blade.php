@@ -1,3 +1,3 @@
 <x-layout>
-    <h1>Show</h1>
+    <h1>show</h1>
 </x-layout>
