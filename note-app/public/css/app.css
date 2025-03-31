@@ -1,0 +1,301 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.new-note-link {
+    display: inline-block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+.new-note-link:hover {
+    background-color: gray;
+}
+
+.notes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.note-card {
+    background-color: #eab916;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-content {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-link {
+    color: white;
+    background-color: #007bff;
+    padding: 3px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: white;
+    background-color: #dc3545;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin: 0 2px;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стили для страницы редактирования */
+.edit-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-form {
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #eab916 ;
+}
+
+.edit-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #eab916;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 20px;
+    background-color: #eab916; 
+}
+
+.edit-textarea:focus {
+    outline: none;
+    border-color: #7a4500;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    background-color: #eab916;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.cancel-link {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #7a4500;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #ddd;
+    border: 1px solid #bcbcbc;
+    border-radius: 5px;
+}
+
+.cancel-link:hover {
+    background-color: #f0f0f0;
+    text-decoration: none;
+}
+
+.submit-button {
+    padding: 8px 16px;
+    background-color: #7a4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для задач */
+.new-task-link {
+    display: inline-block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+.new-task-link:hover {
+    background-color: #c3c3c3;
+}
+
+.tasks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.task-card {
+    background-color: #E6FFE6; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-card.urgent {
+    border-color: #FF3333; 
+    border-width: 2px;
+}
+
+.task-card.done {
+    background-color: #D3D3D3; 
+}
+
+.task-card.done .task-name {
+    text-decoration: line-through; 
+}
+
+.task-name {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    position: relative;
+}
+
+.urgent-label {
+    color: #FF3333;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.done-label {
+    color: #28a745;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.task-completed {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.task-status, .task-urgent {
+    color: #333;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Стили для форм создания/редактирования задач */
+.task-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.task-form {
+    background-color: #E6FFE6; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #E6FFE6; 
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.urgent-checkbox, .done-checkbox {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.urgent-checkbox input, .done-checkbox input {
+    margin-right: 5px;
+}
+
+.completed-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
