@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class TodoController extends Controller
 {
@@ -11,7 +12,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('todo.index');
+        $todos = Todo::query()->orderBy('created_at', 'desc')->paginate(15);
+        return view('todo.index', ['todos' => $todos]);
     }
 
     /**
@@ -33,23 +35,23 @@ class TodoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Note $note)
+    public function show(Todo $todo)
     {
-        return view('todo.show');
+        return view('todo.edit', ['todo' => $todo]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Note $note)
+    public function edit(Todo $todo)
     {
-        return view('todo.edit');
+        return view('todo.edit', ['todo' => $todo]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Note $note)
+    public function update(Request $request, Todo $todo)
     {
         return 'update';
     }
@@ -57,7 +59,7 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Note $note)
+    public function destroy(Todo $todo)
     {
         return 'destroy';
     }

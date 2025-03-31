@@ -1,3 +1,27 @@
 <x-layout>
-    <h1>index</h1>
+    <div class="container">
+        <a href="{{ route('note.create') }}" class="new-note-link">New Note</a>
+        <div class="notes-grid">
+            @foreach ($notes as $note)
+                <div class="note-card">
+                    <div class="note-content">
+                        {{ Str::words($note->note, 30) }}
+                    </div>
+                    <div class="note-actions">
+                        <a href="{{ route('note.show', $note) }}" class="action-link">View</a>
+                        <a href="{{ route('note.edit', $note) }}" class="action-link">Edit</a>
+                        <form action="{{ route('note.destroy', $note) }}" method="POST" class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="pagination">
+            {{ $notes->links() }}
+        </div>
+    </div>
 </x-layout>
