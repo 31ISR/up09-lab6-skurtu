@@ -16,4 +16,9 @@ class Todo extends Model
         'done' => 'boolean',
         'urgent' => 'boolean',
     ];
+
+    public function getDateCompletedAttribute($value)
+    {
+        return $value ? \Carbon\Carbon::parse($value) : null;
+    }
 }

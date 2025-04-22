@@ -29,7 +29,18 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store';
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'urgent' => ['sometimes', 'nullable'], // Убираем 'boolean', так как чекбокс отправляет строку
+        ]);
+
+        $data['urgent'] = $request->has('urgent') && $request->input('urgent') == '1' ? true : false;
+        $data['done'] = false;
+        $data['dateCompleted'] = null;
+
+        $todo = Todo::create($data);
+
+        return to_route('todo.show', $todo)->with('success', 'Task was created');
     }
 
     /**

@@ -84,24 +84,59 @@ body {
     text-decoration: underline;
 }
 
-.pagination {
+
+
+/* Стили для пагинации */
+div.pagination {
+    display: flex !important;
+    flex-direction: row !important; /* Гарантируем горизонтальное расположение */
+    justify-content: center !important;
+    align-items: center !important;
     margin-top: 20px;
-    text-align: center;
 }
 
-.pagination a {
+div.pagination ul.pagination {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.pagination ul.pagination li.page-item {
+    display: inline-block !important;
+    margin: 0 5px !important;
+}
+
+div.pagination ul.pagination li.page-item a.page-link,
+div.pagination ul.pagination li.page-item span.page-link {
+    padding: 8px 12px !important;
+    font-size: 1rem !important;
     color: #007bff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
     text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    margin: 0 2px;
+    transition: background-color 0.2s;
+    display: inline-block;
 }
 
-.pagination a:hover {
-    background-color: #f0f0f0;
+div.pagination ul.pagination li.page-item a.page-link:hover {
+    background-color: #e9ecef;
 }
 
-/* Стили для страницы редактирования */
+div.pagination ul.pagination li.page-item.active span.page-link {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+div.pagination ul.pagination li.page-item.disabled span.page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
 .edit-title {
     font-size: 24px;
     color: #333;
